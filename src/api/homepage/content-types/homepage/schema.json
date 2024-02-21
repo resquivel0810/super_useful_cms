@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "wholesale_title": {
+      "type": "string",
+      "required": true
+    },
+    "wholesale_text": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
