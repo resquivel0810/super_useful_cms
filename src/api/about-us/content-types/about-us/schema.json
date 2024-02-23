@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-us",
     "pluralName": "about-uses",
-    "displayName": "aboutUs"
+    "displayName": "aboutUs",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,12 +15,8 @@
     "title": {
       "type": "string"
     },
-    "history_title": {
+    "values_title": {
       "type": "string",
-      "required": true
-    },
-    "history_text": {
-      "type": "richtext",
       "required": true
     },
     "mision_title": {
@@ -37,6 +34,9 @@
     "vision_text": {
       "type": "richtext",
       "required": true
+    },
+    "values_text": {
+      "type": "richtext"
     }
   }
 }

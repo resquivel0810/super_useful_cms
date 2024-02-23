@@ -789,18 +789,19 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     singularName: 'about-us';
     pluralName: 'about-uses';
     displayName: 'aboutUs';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String;
-    history_title: Attribute.String & Attribute.Required;
-    history_text: Attribute.RichText & Attribute.Required;
+    values_title: Attribute.String & Attribute.Required;
     mision_title: Attribute.String & Attribute.Required;
     mision_text: Attribute.RichText & Attribute.Required;
     vision_title: Attribute.String & Attribute.Required;
     vision_text: Attribute.RichText & Attribute.Required;
+    values_text: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
