@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "wholesales",
+  "info": {
+    "singularName": "wholesale",
+    "pluralName": "wholesales",
+    "displayName": "wholesale"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "success_stories_title": {
+      "type": "string"
+    },
+    "success_stories_text": {
+      "type": "richtext"
+    },
+    "specialized_manufacturing_title": {
+      "type": "string"
+    },
+    "specialized_manufacturing_text": {
+      "type": "richtext"
+    },
+    "benefits_title": {
+      "type": "string"
+    },
+    "benefits_text": {
+      "type": "richtext"
+    }
+  }
+}

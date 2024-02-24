@@ -820,6 +820,38 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
 }
 
+export interface ApiBePartOfOurTeamBePartOfOurTeam extends Schema.SingleType {
+  collectionName: 'be_part_of_our_teams';
+  info: {
+    singularName: 'be-part-of-our-team';
+    pluralName: 'be-part-of-our-teams';
+    displayName: 'bePartOfOurTeam';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    advantages_title: Attribute.String;
+    advantages_text: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::be-part-of-our-team.be-part-of-our-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::be-part-of-our-team.be-part-of-our-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFaqStoreFaqStore extends Schema.CollectionType {
   collectionName: 'faq_stores';
   info: {
@@ -844,6 +876,37 @@ export interface ApiFaqStoreFaqStore extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::faq-store.faq-store',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqWholesaleFaqWholesale extends Schema.CollectionType {
+  collectionName: 'faq_wholesales';
+  info: {
+    singularName: 'faq-wholesale';
+    pluralName: 'faq-wholesales';
+    displayName: 'FAQWholesale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: Attribute.Text;
+    answer: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::faq-wholesale.faq-wholesale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::faq-wholesale.faq-wholesale',
       'oneToOne',
       'admin::user'
     > &
@@ -946,6 +1009,66 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiTeamTeam extends Schema.CollectionType {
+  collectionName: 'teams';
+  info: {
+    singularName: 'team';
+    pluralName: 'teams';
+    displayName: 'team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    photo: Attribute.Media & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    role: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWholesaleWholesale extends Schema.SingleType {
+  collectionName: 'wholesales';
+  info: {
+    singularName: 'wholesale';
+    pluralName: 'wholesales';
+    displayName: 'wholesale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    success_stories_title: Attribute.String;
+    success_stories_text: Attribute.RichText;
+    specialized_manufacturing_title: Attribute.String;
+    specialized_manufacturing_text: Attribute.RichText;
+    benefits_title: Attribute.String;
+    benefits_text: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wholesale.wholesale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wholesale.wholesale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -965,10 +1088,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::be-part-of-our-team.be-part-of-our-team': ApiBePartOfOurTeamBePartOfOurTeam;
       'api::faq-store.faq-store': ApiFaqStoreFaqStore;
+      'api::faq-wholesale.faq-wholesale': ApiFaqWholesaleFaqWholesale;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::product.product': ApiProductProduct;
+      'api::team.team': ApiTeamTeam;
+      'api::wholesale.wholesale': ApiWholesaleWholesale;
     }
   }
 }
