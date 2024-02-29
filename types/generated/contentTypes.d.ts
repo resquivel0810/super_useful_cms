@@ -952,6 +952,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     singularName: 'homepage';
     pluralName: 'homepages';
     displayName: 'homepage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -959,6 +960,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   attributes: {
     wholesale_title: Attribute.String & Attribute.Required;
     wholesale_text: Attribute.RichText & Attribute.Required;
+    banner_video: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
