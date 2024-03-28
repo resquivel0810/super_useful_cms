@@ -852,6 +852,36 @@ export interface ApiBePartOfOurTeamBePartOfOurTeam extends Schema.SingleType {
   };
 }
 
+export interface ApiCarouselVideoCarouselVideo extends Schema.CollectionType {
+  collectionName: 'carousel_videos';
+  info: {
+    singularName: 'carousel-video';
+    pluralName: 'carousel-videos';
+    displayName: 'CarouselVideo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    promoVideo: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::carousel-video.carousel-video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::carousel-video.carousel-video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFaqStoreFaqStore extends Schema.CollectionType {
   collectionName: 'faq_stores';
   info: {
@@ -1035,6 +1065,40 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiVehiculeVehicule extends Schema.CollectionType {
+  collectionName: 'vehicules';
+  info: {
+    singularName: 'vehicule';
+    pluralName: 'vehicules';
+    displayName: 'vehicule';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brand: Attribute.String & Attribute.Required;
+    year: Attribute.Integer & Attribute.Required;
+    model: Attribute.String & Attribute.Required;
+    photo: Attribute.Media & Attribute.Required;
+    material: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::vehicule.vehicule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::vehicule.vehicule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiWholesaleWholesale extends Schema.SingleType {
   collectionName: 'wholesales';
   info: {
@@ -1091,12 +1155,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::be-part-of-our-team.be-part-of-our-team': ApiBePartOfOurTeamBePartOfOurTeam;
+      'api::carousel-video.carousel-video': ApiCarouselVideoCarouselVideo;
       'api::faq-store.faq-store': ApiFaqStoreFaqStore;
       'api::faq-wholesale.faq-wholesale': ApiFaqWholesaleFaqWholesale;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::product.product': ApiProductProduct;
       'api::team.team': ApiTeamTeam;
+      'api::vehicule.vehicule': ApiVehiculeVehicule;
       'api::wholesale.wholesale': ApiWholesaleWholesale;
     }
   }

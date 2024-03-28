@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicules",
+  "info": {
+    "singularName": "vehicule",
+    "pluralName": "vehicules",
+    "displayName": "vehicule"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brand": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "integer",
+      "required": true
+    },
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "material": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
